@@ -17,6 +17,7 @@ class ShellSession(object):
     def __init__(self, command_processor):
         self.command_processor = command_processor
 
+        self.command_processor.write("\n")
         self.command_processor.show_prompt()
 
     def receive(self, line):

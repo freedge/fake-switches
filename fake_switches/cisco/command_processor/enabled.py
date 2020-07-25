@@ -28,7 +28,8 @@ class EnabledCommandProcessor(BaseCommandProcessor):
         self.config_processor = config
 
     def get_prompt(self):
-        return self.switch_configuration.name + "#"
+        # return self.switch_configuration.name + "#"
+        return "enable#"
 
     def do_enable(self, *args):
         pass
@@ -266,6 +267,8 @@ def build_running_interface(port):
         data.append(" switchport mode %s" % port.mode)
     if port.shutdown:
         data.append(" shutdown")
+    else:
+        data.append(" no shutdown")
     if port.aggregation_membership:
         data.append(" channel-group %s mode active" % last_number(port.aggregation_membership))
     if port.vrf:
@@ -428,6 +431,8 @@ def version_text(**kwargs):
         Version ID                      : V05
         CLEI Code Number                : COMB600BRA
         Hardware Board Revision Number  : 0x09
+        system: version 42
+        
 
 
         Switch Ports Model              SW Version            SW Image

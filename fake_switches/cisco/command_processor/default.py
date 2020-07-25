@@ -28,6 +28,9 @@ class DefaultCommandProcessor(BaseCommandProcessor):
         if self.sub_processor.is_done:
             self.is_done = True
         return processed
+    
+    def do_terminal(self, *args):
+        pass
 
     def do_enable(self):
         self.write("Password: ")

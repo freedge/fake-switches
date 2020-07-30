@@ -39,7 +39,7 @@ class DefaultCommandProcessor(BaseCommandProcessor):
 
     def continue_enabling(self, line):
         self.replace_input = False
-        if line == "" or line in self.switch_configuration.privileged_passwords:
+        if line == "" or line in map(lambda s: s.decode("utf-8"), self.switch_configuration.privileged_passwords):
             self.move_to(self.enabled_processor)
         else:
             self.write_line("% Access denied")
